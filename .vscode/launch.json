@@ -1,0 +1,31 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "args": ["${file}"],
+      "name": "Debug NodeJS",
+      "program": "${workspaceFolder}/node_modules/ts-node/dist/bin",
+      "request": "launch",
+      "skipFiles": ["<node_internals>/**"],
+      "type": "node"
+    },
+    {
+      "args": [
+        "--color",
+        "--reporter=spec",
+        "--timeout=0",
+        "--watch",
+        "${file}"
+      ],
+      "internalConsoleOptions": "openOnSessionStart",
+      "name": "Test NodeJS",
+      "program": "${workspaceFolder}/node_modules/mocha/bin/_mocha",
+      "request": "launch",
+      "skipFiles": ["<node_internals>/**"],
+      "type": "node"
+    }
+  ]
+}

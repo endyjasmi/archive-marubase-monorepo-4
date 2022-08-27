@@ -1,0 +1,14 @@
+{
+  "extends": "@tsconfig/node18/tsconfig.json",
+  "compilerOptions": {
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "module": "CommonJS",
+    "moduleResolution": "NodeNext",
+    "noEmit": true,
+    "sourceMap": true
+  },
+  "ts-node": {
+    "experimentalResolver": true
+  }
+}

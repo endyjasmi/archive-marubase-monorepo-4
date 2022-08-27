@@ -1,0 +1,18 @@
+{
+  "name": "@marubase-tools/istanbul-merge",
+  "version": "0.0.0",
+  "type": "commonjs",
+  "bin": "./source/index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "clean:vendor": "del-cli \"./node_modules\"",
+    "lint": "eslint \"./source/**/*\""
+  },
+  "dependencies": {
+    "commander": "^9.4.0",
+    "glob": "^8.0.3",
+    "istanbul-lib-coverage": "^3.2.0"
+  }
+}

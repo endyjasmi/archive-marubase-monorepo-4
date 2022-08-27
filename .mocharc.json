@@ -1,0 +1,6 @@
+{
+  "enable-source-maps": true,
+  "extension": ["cjs", "cts", "js", "jsx", "mjs", "mts", "ts", "tsx"],
+  "reporter": ["dot"],
+  "require": ["ts-node/register"]
+}
