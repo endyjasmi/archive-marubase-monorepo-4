@@ -6,6 +6,7 @@ importers:
     specifiers:
       '@istanbuljs/nyc-config-typescript': ^1.0.2
       '@jsdevtools/coverage-istanbul-loader': ^3.0.5
+      '@marubase-tools/eslint-plugin': workspace:^0.0.0
       '@marubase-tools/istanbul-merge': workspace:^0.0.0
       '@tsconfig/node18': ^1.0.1
       '@types/chai': ^4.3.3
@@ -51,6 +52,7 @@ importers:
     devDependencies:
       '@istanbuljs/nyc-config-typescript': 1.0.2_nyc@15.1.0
       '@jsdevtools/coverage-istanbul-loader': 3.0.5
+      '@marubase-tools/eslint-plugin': link:tools/eslint-plugin
       '@marubase-tools/istanbul-merge': link:tools/istanbul-merge
       '@tsconfig/node18': 1.0.1
       '@types/chai': 4.3.3
@@ -93,6 +95,18 @@ importers:
       util: 0.12.4
       webpack: 5.74.0_webpack-cli@4.10.0
       webpack-cli: 4.10.0_webpack@5.74.0
+
+  tools/eslint-plugin:
+    specifiers:
+      '@typescript-eslint/eslint-plugin': ^5.35.1
+      '@typescript-eslint/parser': ^5.35.1
+      eslint: ^8.23.0
+      typescript: ^4.8.2
+    devDependencies:
+      '@typescript-eslint/eslint-plugin': 5.35.1_pfwtupu3r4wxmgbx6hj7gwmyuu
+      '@typescript-eslint/parser': 5.35.1_yqf6kl63nyoq5megxukfnom5rm
+      eslint: 8.23.0
+      typescript: 4.8.2
 
   tools/istanbul-merge:
     specifiers:

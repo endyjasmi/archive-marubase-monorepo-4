@@ -1,10 +1,11 @@
 {
-  "name": "@marubase/platform",
+  "name": "@marubase/marubase",
   "private": true,
   "type": "commonjs",
   "devDependencies": {
     "@istanbuljs/nyc-config-typescript": "^1.0.2",
     "@jsdevtools/coverage-istanbul-loader": "^3.0.5",
+    "@marubase-tools/eslint-plugin": "workspace:^0.0.0",
     "@marubase-tools/istanbul-merge": "workspace:^0.0.0",
     "@tsconfig/node18": "^1.0.1",
     "@types/chai": "^4.3.3",

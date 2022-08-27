@@ -1,0 +1,25 @@
+{
+  "name": "@marubase-tools/eslint-plugin",
+  "version": "0.0.0",
+  "type": "commonjs",
+  "main": "./source/index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "clean:vendor": "del-cli \"./node_modules\"",
+    "lint": "eslint \"./source/**/*\""
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.35.1",
+    "@typescript-eslint/parser": "^5.35.1",
+    "eslint": "^8.23.0",
+    "typescript": "^4.8.2"
+  },
+  "peerDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.35.1",
+    "@typescript-eslint/parser": "^5.35.1",
+    "eslint": "^8.23.0",
+    "typescript": "^4.8.2"
+  }
+}
