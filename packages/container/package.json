@@ -1,0 +1,51 @@
+{
+  "name": "@marubase/container",
+  "version": "0.0.0",
+  "type": "commonjs",
+  "main": "./build/commonjs/index.js",
+  "module": "./build/esmodule/index.js",
+  "types": "./build/types/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./build/esmodule/index.js",
+      "require": "./build/commonjs/index.js",
+      "types": "./build/types/index.d.ts"
+    },
+    "./*": {
+      "import": "./build/esmodule/*",
+      "require": "./build/commonjs/*",
+      "types": "./build/types/*"
+    },
+    "./package.json": "./package.json"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "pnpm clean:build && pnpm build:commonjs && pnpm build:esmodule && pnpm build:types && pnpm build:bundle",
+    "build:bundle": "webpack",
+    "build:commonjs": "tsc --project \"./tsconfig.commonjs.json\" && echo-cli {\\\"type\\\":\\\"commonjs\\\"} > \"./build/commonjs/package.json\"",
+    "build:esmodule": "tsc --project \"./tsconfig.esmodule.json\" && echo-cli {\\\"type\\\":\\\"module\\\"} > \"./build/esmodule/package.json\"",
+    "build:types": "tsc --project \"./tsconfig.types.json\"",
+    "clean": "pnpm clean:build && pnpm clean:coverage",
+    "clean:build": "del-cli \"./build\"",
+    "clean:coverage": "del-cli \"./coverage\" \"./.nyc_output\"",
+    "clean:vendor": "del-cli \"./node_modules\"",
+    "coverage": "pnpm clean:coverage && pnpm coverage:json:browser && pnpm coverage:json:nodejs && pnpm coverage:json:merge && nyc report --reporter=text --temp-dir=\"./coverage/merge\"",
+    "coverage:browser": "pnpm coverage:json:browser && pnpm coverage:json:merge && nyc report --reporter=text --temp-dir=\"./coverage/merge\"",
+    "coverage:chromium": "cross-env KARMA_COVERAGE=json,lcov,text karma start --browsers=ChromiumHeadless \"../../karma.conf.js\"",
+    "coverage:firefox": "cross-env KARMA_COVERAGE=json,lcov,text karma start --browsers=FirefoxHeadless \"../../karma.conf.js\"",
+    "coverage:nodejs": "nyc mocha \"./source/index.test.*\"",
+    "coverage:webkit": "cross-env KARMA_COVERAGE=json,lcov,text karma start --browsers=WebkitHeadless \"../../karma.conf.js\"",
+    "coverage:json:browser": "cross-env KARMA_COVERAGE=json,lcov karma start --browsers=ChromiumHeadless,FirefoxHeadless,WebkitHeadless \"../../karma.conf.js\"",
+    "coverage:json:merge": "istanbul-merge --inputs=\"./coverage/**/coverage-final.json\" --output=\"./coverage/merge/coverage-final.json\" && nyc report --reporter=lcov --report-dir=\"./coverage/merge\" --temp-dir=\"./coverage/merge\"",
+    "coverage:json:nodejs": "nyc --reporter=json --reporter=lcov --report-dir=\"./coverage/nodejs\" mocha \"./source/index.test.*\"",
+    "lint": "eslint \"./source/**/*\"",
+    "test": "pnpm test:browser && pnpm test:nodejs",
+    "test:browser": "karma start --browsers=ChromiumHeadless,FirefoxHeadless,WebkitHeadless \"../../karma.conf.js\"",
+    "test:chromium": "karma start --browsers=ChromiumHeadless \"../../karma.conf.js\"",
+    "test:firefox": "karma start --browsers=FirefoxHeadless \"../../karma.conf.js\"",
+    "test:nodejs": "mocha \"./source/index.test.*\"",
+    "test:webkit": "karma start --browsers=WebkitHeadless \"../../karma.conf.js\""
+  }
+}

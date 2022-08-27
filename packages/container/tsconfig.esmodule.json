@@ -1,0 +1,10 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "module": "ESNext",
+    "noEmit": false,
+    "outDir": "build/esmodule"
+  },
+  "include": ["source/**/*"],
+  "exclude": ["source/**/*.test.*"]
+}
